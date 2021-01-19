@@ -2,10 +2,16 @@ export class Field {
   type: string;
   name?: string;
   key?: string;
-  options?: string[];
+  options?: Options[];
   label: string;
   value?: any;
+  style?: string;
   validations?: Validation[];
+}
+
+interface Options {
+  label: string;
+  value: string;
 }
 
 class Validation {

@@ -12,99 +12,103 @@ import { Field } from './models/field';
 export class AppComponent {
   title = 'config-forms';
   @ViewChild(DynamicFormComponent) form: DynamicFormComponent;
-  public regConfig: Field[] = [
-    {
-    type: "input",
-    label: "Username",
-    name: "name",
-    validations: [
-    {
-    name: "required",
-    validator: Validators.required,
-    message: "Name Required"
-    },
-    {
-    name: "pattern",
-    validator: Validators.pattern("^[a-zA-Z]+$"),
-    message: "Accept only text"
-    }
+  public formConfig = {
+    title: "Registration",
+    fields: [
+      {
+        type: "input",
+        label: "Username",
+        name: "name",
+        validations: [
+          {
+            name: "required",
+            validator: Validators.required,
+            message: "Name Required"
+          },
+          {
+            name: "pattern",
+            validator: Validators.pattern("^[a-zA-Z]+$"),
+            message: "Accept only text"
+          }
+        ]
+      },
+      {
+        type: "input",
+        label: "Email Address",
+        name: "email",
+        validations: [
+          {
+            name: "required",
+            validator: Validators.required,
+            message: "Email Required"
+          },
+          {
+            name: "pattern",
+            validator: Validators.pattern(
+              "^[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]{2,4}$"
+            ),
+            message: "Invalid email"
+          }
+        ]
+      },
+      {
+        type: "input",
+        label: "Password",
+        name: "password",
+        validations: [
+          {
+            name: "required",
+            validator: Validators.required,
+            message: "Password Required"
+          }
+        ]
+      },
+      {
+      type: "radioBtn",
+      label: "Gender",
+      name: "gender",
+      options: [{label: "Male", value: "Male"}, {label: "Female", value: "Female"}],
+      value:"Male",
+      validations: []
+      },
+      // {
+      // type: "date",
+      // label: "DOB",
+      // name: "dob",
+      // validations: [
+      // {
+      // name: "required",
+      // validator: Validators.required,
+      // message: "Date of Birth Required"
+      // }
+      // ]
+      // },
+      // {
+      // type: "select",
+      // label: "Country",
+      // name: "country",
+      // value: "UK",
+      // validations: [],
+      // options: ["India", "UAE", "UK", "US"]
+      // },
+      // {
+      // type: "checkbox",
+      // label: "Accept Terms",
+      // name: "term",
+      // value: true,
+      // validations: []
+      // },
+      {
+        type: "button",
+        label: "Save",
+        style: "btn-success"
+      }
     ]
-    },
-    {
-    type: "input",
-    label: "Email Address",
-    name: "email",
-    validations: [
-    {
-    name: "required",
-    validator: Validators.required,
-    message: "Email Required"
-    },
-    {
-    name: "pattern",
-    validator: Validators.pattern(
-    "^[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]{2,4}$"
-    ),
-    message: "Invalid email"
-    }
-    ]
-    },
-    {
-    type: "input",
-    label: "Password",
-    name: "password",
-    validations: [
-    {
-    name: "required",
-    validator: Validators.required,
-    message: "Password Required"
-    }
-    ]
-    },
-    // {
-    // type: "radiobutton",
-    // label: "Gender",
-    // name: "gender",
-    // options: ["Male", "Female"],
-    // value: "Male",
-    // validations: []
-    // },
-    // {
-    // type: "date",
-    // label: "DOB",
-    // name: "dob",
-    // validations: [
-    // {
-    // name: "required",
-    // validator: Validators.required,
-    // message: "Date of Birth Required"
-    // }
-    // ]
-    // },
-    // {
-    // type: "select",
-    // label: "Country",
-    // name: "country",
-    // value: "UK",
-    // validations: [],
-    // options: ["India", "UAE", "UK", "US"]
-    // },
-    // {
-    // type: "checkbox",
-    // label: "Accept Terms",
-    // name: "term",
-    // value: true,
-    // validations: []
-    // },
-    {
-    type: "button",
-    label: "Save"
-    }
-    ];
+  }
 
-    public submit(ev): void {
-      console.log(ev)
-    }
+  public submit(ev): void {
+    console.log(ev)
+  }
 
 
 }

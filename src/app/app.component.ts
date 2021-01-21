@@ -71,18 +71,22 @@ export class AppComponent {
       value:"Male",
       validations: []
       },
-      // {
-      // type: "date",
-      // label: "DOB",
-      // name: "dob",
-      // validations: [
-      // {
-      // name: "required",
-      // validator: Validators.required,
-      // message: "Date of Birth Required"
-      // }
-      // ]
-      // },
+      {
+      type: "datePicker",
+      label: "Date Of Birth",
+      name: "dob",
+      value: new Date(),
+      formData: {
+        maxDate: new Date()
+      },
+      validations: [
+      {
+      name: "required",
+      validator: Validators.required,
+      message: "Date of Birth Required"
+      }
+      ]
+      },
       // {
       // type: "select",
       // label: "Country",

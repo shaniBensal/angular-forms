@@ -10,6 +10,11 @@ import { DynamicFieldDirective } from './directives/dynamic-field.directive';
 import { ButtonComponent } from './forms/button/button.component';
 import { FormBaseComponent } from './forms/form-base/form-base.component';
 import { RadioBtnComponent } from './forms/radio-btn/radio-btn.component';
+import { DateInputComponent } from './forms/date-input/date-input.component';
+
+import {CalendarModule} from 'primeng/calendar';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { FieldErrorComponent } from './forms/field-error/field-error.component';
 
 @NgModule({
   declarations: [
@@ -19,13 +24,18 @@ import { RadioBtnComponent } from './forms/radio-btn/radio-btn.component';
     DynamicFormComponent,
     ButtonComponent,
     FormBaseComponent,
-    RadioBtnComponent
+    RadioBtnComponent,
+    DateInputComponent,
+    FieldErrorComponent
     ],
   imports: [
     BrowserModule,
     NgbModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    CalendarModule,
+    BrowserAnimationsModule
+
   ],
   providers: [],
   entryComponents:[ButtonComponent,InputComponent],

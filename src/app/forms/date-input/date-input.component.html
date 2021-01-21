@@ -1,0 +1,12 @@
+<form [formGroup]="group">
+  <h5>{{ field.label }}</h5>
+  <p-calendar
+    [formControlName]="field.name"
+    dateFormat="yy-mm-dd"
+    [monthNavigator]="true"
+    [yearNavigator]="true"
+    yearRange="2010:2030"
+    [maxDate]="field.formData && field.formData.maxDate ? field.formData.maxDate: null"
+  ></p-calendar>
+  <app-field-error [field]="field" [group]="group"></app-field-error>
+</form>

@@ -7,8 +7,6 @@
       class="form-control"
       id="exampleInputEmail1"
     />
-    <div class="mt-1 text-danger" *ngFor="let validation of field.validations;">
-      <p class="mb-0" *ngIf="group.get(field.name).touched && group.get(field.name).hasError(validation.name)">{{validation.message}}</p>
-    </div>
+    <app-field-error [field]="field" [group]="group"></app-field-error>
   </div>
 </form>

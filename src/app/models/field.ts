@@ -6,6 +6,7 @@ export class Field {
   label: string;
   value?: any;
   style?: string;
+  formData?: any;
   validations?: Validation[];
 }
 

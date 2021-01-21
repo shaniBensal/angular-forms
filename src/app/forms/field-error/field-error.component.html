@@ -1,0 +1,3 @@
+<div class="mt-1 text-danger" *ngFor="let validation of field.validations;">
+  <p class="mb-0" *ngIf="group.get(field.name).touched && group.get(field.name).hasError(validation.name)">{{validation.message}}</p>
+</div>

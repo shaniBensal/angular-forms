@@ -1,0 +1,10 @@
+<form [formGroup]="group">
+  <h5>{{ field.label }}</h5>
+  <div *ngFor="let item of field.formData.optionList">
+    <p-checkbox
+      [label]="item.label"
+      [value]="item.value"
+      [formControlName]="field.name"
+    ></p-checkbox>
+  </div>
+</form>

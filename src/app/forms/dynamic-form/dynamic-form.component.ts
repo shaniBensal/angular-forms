@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Field } from 'src/app/models/field';
+import { ConfigTypes } from 'src/app/form-config/config-types.enum';
 
 @Component({
   selector: 'app-dynamic-form',
@@ -8,7 +8,7 @@ import { Field } from 'src/app/models/field';
   styleUrls: ['./dynamic-form.component.scss']
 })
 export class DynamicFormComponent implements OnInit {
-  @Input() public fields: Field[] = [];
+  @Input() public config;
   @Output() public submit: EventEmitter<any> = new EventEmitter<any>();
   public form: FormGroup;
 
@@ -24,13 +24,15 @@ export class DynamicFormComponent implements OnInit {
 
   createControl() {
     const group = this.fb.group({});
-    this.fields.forEach(field => {
-      if (field.type === "button") return;
-      const control = this.fb.control(
-        field.value,
-        this.bindValidations(field.validations || [])
-      );
-      group.addControl(field.name, control);
+    this.config.formGroup.forEach(form => {
+      form.fields.forEach(field => {
+        if (field.type === "button") return;
+        const control = this.fb.control(
+          field.value,
+          this.bindValidations(field.validations || [])
+        );
+        group.addControl(field.name, control);
+      });
     });
     return group;
   }

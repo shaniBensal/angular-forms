@@ -1,5 +1,4 @@
-<div class="form container pt-2">
-  <h1>{{formConfig.title}}</h1>
-  <app-dynamic-form [fields]="formConfig.fields">
+<div class="form container pt-2 px-0" *ngIf="!!formConfig">
+  <app-dynamic-form [config]="formConfig.config">
   </app-dynamic-form>
 </div>

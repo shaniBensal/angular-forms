@@ -9,6 +9,7 @@ import { DynamicFieldDirective } from './directives/dynamic-field.directive';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { formComponentList, primngModules } from './forms/component-list';
+import { FormConfigA } from './form-config/config-a';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,7 @@ import { formComponentList, primngModules } from './forms/component-list';
     primngModules,
 
   ],
-  providers: [],
+  providers: [FormConfigA],
   entryComponents: [formComponentList],
   bootstrap: [AppComponent]
 })

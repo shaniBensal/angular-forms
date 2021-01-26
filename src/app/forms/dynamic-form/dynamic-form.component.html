@@ -1,4 +1,16 @@
-<form class="dynamic-form" [formGroup]="form" (submit)="onSubmit($event)">
-  <ng-container *ngFor="let field of fields;" appDynamicField [field]="field" [group]="form">
-  </ng-container>
-  </form>
+<h1>{{config.title}}</h1>
+<form class="dynamic-form {{config.wrapperClass}}" [formGroup]="form" (submit)="onSubmit($event)">
+  <div
+    *ngFor="let singelForm of config.formGroup"
+    [ngClass]="singelForm.formWrapperStyle"
+  >
+    <h4>{{ singelForm.subTitle }}</h4>
+    <ng-container
+      *ngFor="let field of singelForm.fields"
+      appDynamicField
+      [field]="field"
+      [group]="form"
+    >
+    </ng-container>
+  </div>
+</form>
